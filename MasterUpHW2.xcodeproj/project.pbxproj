@@ -14,13 +14,17 @@
 		C387B3D8188F304A00106686 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C387B3D7188F304A00106686 /* main.m */; };
 		C387B3DC188F304A00106686 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C387B3DB188F304A00106686 /* AppDelegate.m */; };
 		C387B3DF188F304A00106686 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C387B3DD188F304A00106686 /* Main.storyboard */; };
-		C387B3E2188F304A00106686 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C387B3E1188F304A00106686 /* ViewController.m */; };
+		C387B3E2188F304A00106686 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C387B3E1188F304A00106686 /* LoginViewController.m */; };
 		C387B3E4188F304A00106686 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C387B3E3188F304A00106686 /* Images.xcassets */; };
 		C387B3EB188F304A00106686 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C387B3EA188F304A00106686 /* XCTest.framework */; };
 		C387B3EC188F304A00106686 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C387B3CB188F304A00106686 /* Foundation.framework */; };
 		C387B3ED188F304A00106686 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C387B3CF188F304A00106686 /* UIKit.framework */; };
 		C387B3F5188F304A00106686 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C387B3F3188F304A00106686 /* InfoPlist.strings */; };
 		C387B3F7188F304A00106686 /* MasterUpHW2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = C387B3F6188F304A00106686 /* MasterUpHW2Tests.m */; };
+		C387B404188F30F200106686 /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = C387B403188F30F200106686 /* Route.m */; };
+		C387B407188F311800106686 /* Vehicle.m in Sources */ = {isa = PBXBuildFile; fileRef = C387B406188F311800106686 /* Vehicle.m */; };
+		C387B40A188F312500106686 /* Bus.m in Sources */ = {isa = PBXBuildFile; fileRef = C387B409188F312500106686 /* Bus.m */; };
+		C387B40D188F341200106686 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C387B40C188F341200106686 /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,14 +49,22 @@
 		C387B3DA188F304A00106686 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C387B3DB188F304A00106686 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C387B3DE188F304A00106686 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C387B3E0188F304A00106686 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C387B3E1188F304A00106686 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		C387B3E0188F304A00106686 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		C387B3E1188F304A00106686 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		C387B3E3188F304A00106686 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C387B3E9188F304A00106686 /* MasterUpHW2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MasterUpHW2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C387B3EA188F304A00106686 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		C387B3F2188F304A00106686 /* MasterUpHW2Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MasterUpHW2Tests-Info.plist"; sourceTree = "<group>"; };
 		C387B3F4188F304A00106686 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C387B3F6188F304A00106686 /* MasterUpHW2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterUpHW2Tests.m; sourceTree = "<group>"; };
+		C387B402188F30F200106686 /* Route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Route.h; sourceTree = "<group>"; };
+		C387B403188F30F200106686 /* Route.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Route.m; sourceTree = "<group>"; };
+		C387B405188F311800106686 /* Vehicle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vehicle.h; sourceTree = "<group>"; };
+		C387B406188F311800106686 /* Vehicle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vehicle.m; sourceTree = "<group>"; };
+		C387B408188F312500106686 /* Bus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bus.h; sourceTree = "<group>"; };
+		C387B409188F312500106686 /* Bus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bus.m; sourceTree = "<group>"; };
+		C387B40B188F341200106686 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		C387B40C188F341200106686 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,11 +124,12 @@
 		C387B3D1188F304A00106686 /* MasterUpHW2 */ = {
 			isa = PBXGroup;
 			children = (
+				C387B400188F30DA00106686 /* Classes */,
 				C387B3DA188F304A00106686 /* AppDelegate.h */,
 				C387B3DB188F304A00106686 /* AppDelegate.m */,
 				C387B3DD188F304A00106686 /* Main.storyboard */,
-				C387B3E0188F304A00106686 /* ViewController.h */,
-				C387B3E1188F304A00106686 /* ViewController.m */,
+				C387B3E0188F304A00106686 /* LoginViewController.h */,
+				C387B3E1188F304A00106686 /* LoginViewController.m */,
 				C387B3E3188F304A00106686 /* Images.xcassets */,
 				C387B3D2188F304A00106686 /* Supporting Files */,
 			);
@@ -150,6 +163,29 @@
 				C387B3F3188F304A00106686 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C387B400188F30DA00106686 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C387B401188F30DA00106686 /* Models */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		C387B401188F30DA00106686 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C387B402188F30F200106686 /* Route.h */,
+				C387B403188F30F200106686 /* Route.m */,
+				C387B405188F311800106686 /* Vehicle.h */,
+				C387B406188F311800106686 /* Vehicle.m */,
+				C387B408188F312500106686 /* Bus.h */,
+				C387B409188F312500106686 /* Bus.m */,
+				C387B40B188F341200106686 /* User.h */,
+				C387B40C188F341200106686 /* User.m */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,9 +285,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C387B3E2188F304A00106686 /* ViewController.m in Sources */,
+				C387B40A188F312500106686 /* Bus.m in Sources */,
+				C387B40D188F341200106686 /* User.m in Sources */,
+				C387B3E2188F304A00106686 /* LoginViewController.m in Sources */,
+				C387B404188F30F200106686 /* Route.m in Sources */,
 				C387B3DC188F304A00106686 /* AppDelegate.m in Sources */,
 				C387B3D8188F304A00106686 /* main.m in Sources */,
+				C387B407188F311800106686 /* Vehicle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

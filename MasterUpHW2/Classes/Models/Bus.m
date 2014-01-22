@@ -1,13 +1,13 @@
 //
-//  ViewController.h
+//  Bus.m
 //  MasterUpHW2
 //
 //  Created by Администратор on 1/22/14.
 //  Copyright (c) 2014 Администратор. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "Bus.h"
 
-@interface ViewController : UIViewController
+@implementation Bus
 
 @end
