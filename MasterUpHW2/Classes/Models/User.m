@@ -10,4 +10,19 @@
 
 @implementation User
 
++ (instancetype)userWithName: (NSString *)name
+                    password: (NSString *)password
+{
+    User *user    = [[User alloc] init];
+    user.userName = name;
+    user.password = password;
+    
+    return user;
+}
+
+- (void)login
+{
+    NSLog(@"Login user %@ %@", self.userName, self.password);
+}
+
 @end

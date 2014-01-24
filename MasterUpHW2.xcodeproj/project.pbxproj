@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		639EB85F18928C5900E0CB90 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 639EB85518928C5900E0CB90 /* LoginViewController.m */; };
+		639EB86018928C5900E0CB90 /* Bus.m in Sources */ = {isa = PBXBuildFile; fileRef = 639EB85818928C5900E0CB90 /* Bus.m */; };
+		639EB86118928C5900E0CB90 /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 639EB85A18928C5900E0CB90 /* Route.m */; };
+		639EB86218928C5900E0CB90 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 639EB85C18928C5900E0CB90 /* User.m */; };
+		639EB86318928C5900E0CB90 /* Vehicle.m in Sources */ = {isa = PBXBuildFile; fileRef = 639EB85E18928C5900E0CB90 /* Vehicle.m */; };
+		639EB86618928DA800E0CB90 /* RegistrationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 639EB86518928DA800E0CB90 /* RegistrationController.m */; };
+		639EB86918928DB600E0CB90 /* ForgotPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 639EB86818928DB600E0CB90 /* ForgotPasswordController.m */; };
+		639EB86C18928E4E00E0CB90 /* MainScreenController.m in Sources */ = {isa = PBXBuildFile; fileRef = 639EB86B18928E4E00E0CB90 /* MainScreenController.m */; };
+		639EB86F18928FBA00E0CB90 /* clickme.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 639EB86E18928FBA00E0CB90 /* clickme.jpg */; };
 		C387B3CC188F304A00106686 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C387B3CB188F304A00106686 /* Foundation.framework */; };
 		C387B3CE188F304A00106686 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C387B3CD188F304A00106686 /* CoreGraphics.framework */; };
 		C387B3D0188F304A00106686 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C387B3CF188F304A00106686 /* UIKit.framework */; };
@@ -14,17 +23,12 @@
 		C387B3D8188F304A00106686 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C387B3D7188F304A00106686 /* main.m */; };
 		C387B3DC188F304A00106686 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C387B3DB188F304A00106686 /* AppDelegate.m */; };
 		C387B3DF188F304A00106686 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C387B3DD188F304A00106686 /* Main.storyboard */; };
-		C387B3E2188F304A00106686 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C387B3E1188F304A00106686 /* LoginViewController.m */; };
 		C387B3E4188F304A00106686 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C387B3E3188F304A00106686 /* Images.xcassets */; };
 		C387B3EB188F304A00106686 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C387B3EA188F304A00106686 /* XCTest.framework */; };
 		C387B3EC188F304A00106686 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C387B3CB188F304A00106686 /* Foundation.framework */; };
 		C387B3ED188F304A00106686 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C387B3CF188F304A00106686 /* UIKit.framework */; };
 		C387B3F5188F304A00106686 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C387B3F3188F304A00106686 /* InfoPlist.strings */; };
 		C387B3F7188F304A00106686 /* MasterUpHW2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = C387B3F6188F304A00106686 /* MasterUpHW2Tests.m */; };
-		C387B404188F30F200106686 /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = C387B403188F30F200106686 /* Route.m */; };
-		C387B407188F311800106686 /* Vehicle.m in Sources */ = {isa = PBXBuildFile; fileRef = C387B406188F311800106686 /* Vehicle.m */; };
-		C387B40A188F312500106686 /* Bus.m in Sources */ = {isa = PBXBuildFile; fileRef = C387B409188F312500106686 /* Bus.m */; };
-		C387B40D188F341200106686 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C387B40C188F341200106686 /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +42,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		639EB85418928C5900E0CB90 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		639EB85518928C5900E0CB90 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		639EB85718928C5900E0CB90 /* Bus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bus.h; sourceTree = "<group>"; };
+		639EB85818928C5900E0CB90 /* Bus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bus.m; sourceTree = "<group>"; };
+		639EB85918928C5900E0CB90 /* Route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Route.h; sourceTree = "<group>"; };
+		639EB85A18928C5900E0CB90 /* Route.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Route.m; sourceTree = "<group>"; };
+		639EB85B18928C5900E0CB90 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		639EB85C18928C5900E0CB90 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		639EB85D18928C5900E0CB90 /* Vehicle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vehicle.h; sourceTree = "<group>"; };
+		639EB85E18928C5900E0CB90 /* Vehicle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vehicle.m; sourceTree = "<group>"; };
+		639EB86418928DA800E0CB90 /* RegistrationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationController.h; sourceTree = "<group>"; };
+		639EB86518928DA800E0CB90 /* RegistrationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationController.m; sourceTree = "<group>"; };
+		639EB86718928DB600E0CB90 /* ForgotPasswordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgotPasswordController.h; sourceTree = "<group>"; };
+		639EB86818928DB600E0CB90 /* ForgotPasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgotPasswordController.m; sourceTree = "<group>"; };
+		639EB86A18928E4E00E0CB90 /* MainScreenController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScreenController.h; sourceTree = "<group>"; };
+		639EB86B18928E4E00E0CB90 /* MainScreenController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScreenController.m; sourceTree = "<group>"; };
+		639EB86E18928FBA00E0CB90 /* clickme.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = clickme.jpg; sourceTree = "<group>"; };
+		639EB872189292AD00E0CB90 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		C387B3C8188F304A00106686 /* MasterUpHW2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MasterUpHW2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C387B3CB188F304A00106686 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C387B3CD188F304A00106686 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -49,22 +71,12 @@
 		C387B3DA188F304A00106686 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C387B3DB188F304A00106686 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C387B3DE188F304A00106686 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C387B3E0188F304A00106686 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		C387B3E1188F304A00106686 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		C387B3E3188F304A00106686 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C387B3E9188F304A00106686 /* MasterUpHW2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MasterUpHW2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C387B3EA188F304A00106686 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		C387B3F2188F304A00106686 /* MasterUpHW2Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MasterUpHW2Tests-Info.plist"; sourceTree = "<group>"; };
 		C387B3F4188F304A00106686 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C387B3F6188F304A00106686 /* MasterUpHW2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterUpHW2Tests.m; sourceTree = "<group>"; };
-		C387B402188F30F200106686 /* Route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Route.h; sourceTree = "<group>"; };
-		C387B403188F30F200106686 /* Route.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Route.m; sourceTree = "<group>"; };
-		C387B405188F311800106686 /* Vehicle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vehicle.h; sourceTree = "<group>"; };
-		C387B406188F311800106686 /* Vehicle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vehicle.m; sourceTree = "<group>"; };
-		C387B408188F312500106686 /* Bus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bus.h; sourceTree = "<group>"; };
-		C387B409188F312500106686 /* Bus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bus.m; sourceTree = "<group>"; };
-		C387B40B188F341200106686 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		C387B40C188F341200106686 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +103,62 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		639EB85218928C5900E0CB90 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				639EB8701892924800E0CB90 /* Constants */,
+				639EB85318928C5900E0CB90 /* Controllers */,
+				639EB85618928C5900E0CB90 /* Models */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		639EB85318928C5900E0CB90 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				639EB85418928C5900E0CB90 /* LoginViewController.h */,
+				639EB85518928C5900E0CB90 /* LoginViewController.m */,
+				639EB86418928DA800E0CB90 /* RegistrationController.h */,
+				639EB86518928DA800E0CB90 /* RegistrationController.m */,
+				639EB86718928DB600E0CB90 /* ForgotPasswordController.h */,
+				639EB86818928DB600E0CB90 /* ForgotPasswordController.m */,
+				639EB86A18928E4E00E0CB90 /* MainScreenController.h */,
+				639EB86B18928E4E00E0CB90 /* MainScreenController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		639EB85618928C5900E0CB90 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				639EB85718928C5900E0CB90 /* Bus.h */,
+				639EB85818928C5900E0CB90 /* Bus.m */,
+				639EB85918928C5900E0CB90 /* Route.h */,
+				639EB85A18928C5900E0CB90 /* Route.m */,
+				639EB85B18928C5900E0CB90 /* User.h */,
+				639EB85C18928C5900E0CB90 /* User.m */,
+				639EB85D18928C5900E0CB90 /* Vehicle.h */,
+				639EB85E18928C5900E0CB90 /* Vehicle.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		639EB86D18928FB000E0CB90 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				639EB86E18928FBA00E0CB90 /* clickme.jpg */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		639EB8701892924800E0CB90 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				639EB872189292AD00E0CB90 /* Constants.h */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		C387B3BF188F304A00106686 = {
 			isa = PBXGroup;
 			children = (
@@ -124,12 +192,11 @@
 		C387B3D1188F304A00106686 /* MasterUpHW2 */ = {
 			isa = PBXGroup;
 			children = (
-				C387B400188F30DA00106686 /* Classes */,
+				639EB86D18928FB000E0CB90 /* Images */,
+				639EB85218928C5900E0CB90 /* Classes */,
 				C387B3DA188F304A00106686 /* AppDelegate.h */,
 				C387B3DB188F304A00106686 /* AppDelegate.m */,
 				C387B3DD188F304A00106686 /* Main.storyboard */,
-				C387B3E0188F304A00106686 /* LoginViewController.h */,
-				C387B3E1188F304A00106686 /* LoginViewController.m */,
 				C387B3E3188F304A00106686 /* Images.xcassets */,
 				C387B3D2188F304A00106686 /* Supporting Files */,
 			);
@@ -163,29 +230,6 @@
 				C387B3F3188F304A00106686 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		C387B400188F30DA00106686 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				C387B401188F30DA00106686 /* Models */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		C387B401188F30DA00106686 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				C387B402188F30F200106686 /* Route.h */,
-				C387B403188F30F200106686 /* Route.m */,
-				C387B405188F311800106686 /* Vehicle.h */,
-				C387B406188F311800106686 /* Vehicle.m */,
-				C387B408188F312500106686 /* Bus.h */,
-				C387B409188F312500106686 /* Bus.m */,
-				C387B40B188F341200106686 /* User.h */,
-				C387B40C188F341200106686 /* User.m */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +310,7 @@
 			files = (
 				C387B3E4188F304A00106686 /* Images.xcassets in Resources */,
 				C387B3D6188F304A00106686 /* InfoPlist.strings in Resources */,
+				639EB86F18928FBA00E0CB90 /* clickme.jpg in Resources */,
 				C387B3DF188F304A00106686 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,13 +330,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C387B40A188F312500106686 /* Bus.m in Sources */,
-				C387B40D188F341200106686 /* User.m in Sources */,
-				C387B3E2188F304A00106686 /* LoginViewController.m in Sources */,
-				C387B404188F30F200106686 /* Route.m in Sources */,
+				639EB86118928C5900E0CB90 /* Route.m in Sources */,
 				C387B3DC188F304A00106686 /* AppDelegate.m in Sources */,
+				639EB86C18928E4E00E0CB90 /* MainScreenController.m in Sources */,
+				639EB86618928DA800E0CB90 /* RegistrationController.m in Sources */,
+				639EB86218928C5900E0CB90 /* User.m in Sources */,
+				639EB86318928C5900E0CB90 /* Vehicle.m in Sources */,
+				639EB86918928DB600E0CB90 /* ForgotPasswordController.m in Sources */,
 				C387B3D8188F304A00106686 /* main.m in Sources */,
-				C387B407188F311800106686 /* Vehicle.m in Sources */,
+				639EB86018928C5900E0CB90 /* Bus.m in Sources */,
+				639EB85F18928C5900E0CB90 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,6 +548,7 @@
 				C387B3FC188F304A00106686 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C387B3FD188F304A00106686 /* Build configuration list for PBXNativeTarget "MasterUpHW2Tests" */ = {
 			isa = XCConfigurationList;
@@ -508,6 +557,7 @@
 				C387B3FF188F304A00106686 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

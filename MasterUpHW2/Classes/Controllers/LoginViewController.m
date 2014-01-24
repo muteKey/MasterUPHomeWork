@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 
 @interface LoginViewController ()
+
 @property (weak, nonatomic) IBOutlet UITextField *txtLogin;
 @property (weak, nonatomic) IBOutlet UITextField *txtPassword;
 
@@ -28,9 +29,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Validation -
+
+- (BOOL)isCredentials
+
 #pragma mark - UI actions -
 
-- (IBAction)loginTapped:(UIButton *)sender
+- (IBAction)loginTapped: (UIButton *)sender
 {
     
 }

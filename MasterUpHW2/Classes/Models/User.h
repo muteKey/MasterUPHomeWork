@@ -10,4 +10,13 @@
 
 @interface User : NSObject
 
+// properties
+@property (nonatomic, strong) NSString *userName;
+@property (nonatomic, strong) NSString *password;
+
+// methods
++ (instancetype)userWithName: (NSString *)name
+                    password: (NSString *)password;
+
+- (void)login;
 @end
