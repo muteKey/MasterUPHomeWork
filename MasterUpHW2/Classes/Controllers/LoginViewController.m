@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "User.h"
 
 @interface LoginViewController ()
 
@@ -29,15 +30,14 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Validation -
-
-- (BOOL)isCredentials
-
 #pragma mark - UI actions -
 
-- (IBAction)loginTapped: (UIButton *)sender
+- (IBAction)loginTapped:(UIButton *)sender
 {
-    
+    User *user = [User userWithName: self.txtLogin.text
+                           password: self.txtPassword.text];
+    [user login];
 }
+
 
 @end

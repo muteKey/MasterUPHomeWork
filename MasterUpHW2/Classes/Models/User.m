@@ -22,7 +22,14 @@
 
 - (void)login
 {
-    NSLog(@"Login user %@ %@", self.userName, self.password);
+    if (self.userName.length > 0 && self.password.length > 0)
+    {
+        NSLog(@"Welcome, user %@",self.userName);
+    }
+    else
+    {
+        NSLog(@"Please enter your username and password");
+    }
 }
 
 @end
