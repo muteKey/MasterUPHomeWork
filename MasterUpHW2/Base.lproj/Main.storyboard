@@ -157,6 +157,7 @@
                             <outlet property="delegate" destination="ktS-eL-Qzk" id="Y9C-YL-56m"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uJD-b3-tDo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
