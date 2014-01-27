@@ -10,4 +10,6 @@
 
 @interface Route : NSObject
 @property (nonatomic, strong) NSString *name;
+
++ (Route *)createRouteWithParameters: (NSDictionary *) params;
 @end

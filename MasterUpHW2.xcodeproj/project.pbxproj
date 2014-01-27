@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0D08E135BBBB4FDC8E49C48E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F3079EE359F9492C86B2E81F /* libPods.a */; };
+		639535F3189677590061E0C6 /* SidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 639535F2189677590061E0C6 /* SidePanelController.m */; };
+		639535F9189679B10061E0C6 /* RoutesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 639535F8189679B10061E0C6 /* RoutesController.m */; };
 		639EB85F18928C5900E0CB90 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 639EB85518928C5900E0CB90 /* LoginViewController.m */; };
 		639EB86018928C5900E0CB90 /* Bus.m in Sources */ = {isa = PBXBuildFile; fileRef = 639EB85818928C5900E0CB90 /* Bus.m */; };
 		639EB86118928C5900E0CB90 /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 639EB85A18928C5900E0CB90 /* Route.m */; };
@@ -43,6 +45,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		639535F1189677590061E0C6 /* SidePanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidePanelController.h; sourceTree = "<group>"; };
+		639535F2189677590061E0C6 /* SidePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidePanelController.m; sourceTree = "<group>"; };
+		639535F7189679B10061E0C6 /* RoutesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoutesController.h; sourceTree = "<group>"; };
+		639535F8189679B10061E0C6 /* RoutesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoutesController.m; sourceTree = "<group>"; };
 		639EB85418928C5900E0CB90 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		639EB85518928C5900E0CB90 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		639EB85718928C5900E0CB90 /* Bus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bus.h; sourceTree = "<group>"; };
@@ -126,6 +132,10 @@
 				639EB86818928DB600E0CB90 /* ForgotPasswordController.m */,
 				639EB86A18928E4E00E0CB90 /* MainScreenController.h */,
 				639EB86B18928E4E00E0CB90 /* MainScreenController.m */,
+				639535F1189677590061E0C6 /* SidePanelController.h */,
+				639535F2189677590061E0C6 /* SidePanelController.m */,
+				639535F7189679B10061E0C6 /* RoutesController.h */,
+				639535F8189679B10061E0C6 /* RoutesController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -366,7 +376,9 @@
 				639EB86C18928E4E00E0CB90 /* MainScreenController.m in Sources */,
 				639EB86618928DA800E0CB90 /* RegistrationController.m in Sources */,
 				639EB86218928C5900E0CB90 /* User.m in Sources */,
+				639535F3189677590061E0C6 /* SidePanelController.m in Sources */,
 				639EB86318928C5900E0CB90 /* Vehicle.m in Sources */,
+				639535F9189679B10061E0C6 /* RoutesController.m in Sources */,
 				639EB86918928DB600E0CB90 /* ForgotPasswordController.m in Sources */,
 				C387B3D8188F304A00106686 /* main.m in Sources */,
 				639EB86018928C5900E0CB90 /* Bus.m in Sources */,

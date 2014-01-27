@@ -8,6 +8,19 @@
 
 #import "Route.h"
 
+#define kRouteTitle     @"route_title"
+
 @implementation Route
+
++ (Route *)createRouteWithParameters: (NSDictionary *)params
+{
+    Route *route = [Route new];
+    
+    // parsing here
+    route.name   = params[kRouteTitle];
+    
+    
+    return route;
+}
 
 @end
