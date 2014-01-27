@@ -7,8 +7,11 @@
 //
 
 #import "RoutesController.h"
-#import <AFNetworking.h>
 #import "Route.h"
+
+#import <AFNetworking.h>
+#import <MBProgressHUD.h>
+
 
 #define ROUTES_URL @"http://marshrutki.com.ua/mu/routes.php"
 
@@ -21,6 +24,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [MBProgressHUD showHUDAddedTo: self.view
+                         animated: YES];
  
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET: ROUTES_URL
@@ -36,9 +42,22 @@
              
              [self.tableView reloadData];
              
+             [MBProgressHUD hideHUDForView: self.view
+                                  animated: YES];
+             
     } failure: ^(AFHTTPRequestOperation *operation, NSError *error) {
         
         NSLog(@"Error: %@", error);
+        
+        [MBProgressHUD hideHUDForView: self.view
+                             animated: YES];
+        
+        UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"Error occured", @"")
+                                                             message: NSLocalizedString(@"Error loading routes", @"")
+                                                            delegate: nil
+                                                   cancelButtonTitle: NSLocalizedString(@"Okay", @"")
+                                                   otherButtonTitles: nil, nil];
+        [errorAlert show];
         
     }];
 
