@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "User.h"
 
+
 @interface LoginViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *txtLogin;
@@ -21,7 +22,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning
@@ -37,7 +37,24 @@
     User *user = [User userWithName: self.txtLogin.text
                            password: self.txtPassword.text];
     [user login];
+    
+    [self dismissViewControllerAnimated: YES
+                             completion: nil];
 }
+
+- (void)touchesBegan: (NSSet *)touches
+           withEvent: (UIEvent *)event
+{
+    [super touchesBegan: touches
+              withEvent: event];
+    
+    UITouch *touch = [touches anyObject];
+    if (touch.phase == UITouchPhaseBegan)
+    {
+        [self.view endEditing: NO];
+    }
+}
+
 
 
 @end

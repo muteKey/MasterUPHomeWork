@@ -8,9 +8,14 @@
 
 #import "MainScreenController.h"
 
+#define loginControllerIdentifier @"loginNavigationController"
+
+
 @interface MainScreenController ()
 
 @end
+
+
 
 @implementation MainScreenController
 
@@ -19,13 +24,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
+    UIViewController *loginController = [self.storyboard instantiateViewControllerWithIdentifier: loginControllerIdentifier];
+    
+    [self presentViewController: loginController
+                       animated: NO
+                     completion: nil];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
@@ -33,7 +42,10 @@
 
 - (IBAction)longTapIcon: (UILongPressGestureRecognizer *)sender
 {
-    NSLog(@"Long tap detected on image icon");  
+    if (sender.state == UIGestureRecognizerStateBegan)
+    {
+        NSLog(@"Long tap detected on image icon");
+    }
 }
 
 @end
