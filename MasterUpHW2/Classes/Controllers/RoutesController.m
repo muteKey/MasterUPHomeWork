@@ -7,11 +7,12 @@
 //
 
 #import "RoutesController.h"
+#import "SidePanelController.h"
+#import "MainScreenController.h"
 #import "Route.h"
 
 #import <AFNetworking.h>
 #import <MBProgressHUD.h>
-
 
 #define ROUTES_URL @"http://marshrutki.com.ua/mu/routes.php"
 
@@ -75,7 +76,8 @@
     return self.data.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView: (UITableView *)tableView
+         cellForRowAtIndexPath: (NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell           = [tableView dequeueReusableCellWithIdentifier: CellIdentifier
@@ -88,11 +90,29 @@
     return cell;
 }
 
+#pragma mark - UITableViewDelegate -
+
+- (void)tableView:               (UITableView *)tableView
+        didSelectRowAtIndexPath: (NSIndexPath *)indexPath
+{
+    SidePanelController *panelController               = (SidePanelController *)self.parentViewController;
+    UINavigationController *centerNavigationController = (UINavigationController *)panelController.centerPanel;
+    Route *currentRoute                                = self.data[indexPath.row];
+    MainScreenController *mainScreenController         = centerNavigationController.viewControllers[0];
+    
+    [mainScreenController changeTitle: currentRoute.name];
+    
+    [self.tableView deselectRowAtIndexPath: indexPath
+                                  animated: YES];
+    
+    [panelController showCenterPanelAnimated: YES];
+}
+
 #pragma mark - Getters -
 
 - (NSMutableArray *)data
 {
-    if (!_data)
+    if (!_data) // lazy instantiation
     {
         _data = [NSMutableArray new];
     }

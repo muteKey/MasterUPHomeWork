@@ -10,4 +10,6 @@
 
 @interface MainScreenController : UIViewController
 
+- (void)changeTitle: (NSString *)title;
+
 @end

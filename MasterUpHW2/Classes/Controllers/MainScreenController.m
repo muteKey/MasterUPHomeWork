@@ -48,4 +48,11 @@
     }
 }
 
+#pragma mark - public method -
+
+- (void)changeTitle: (NSString *)title
+{
+    self.title = title;
+}
+
 @end
