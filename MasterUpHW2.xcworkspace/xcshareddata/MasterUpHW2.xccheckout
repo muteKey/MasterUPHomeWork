@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>334C2749-85AF-4A2D-B17D-935CD9BDF394</string>
+	<string>6A8E265A-3F65-492D-8204-CC96A3EBBA80</string>
 	<key>IDESourceControlProjectName</key>
 	<string>MasterUpHW2</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>31A6E674-41AF-4633-A497-076EB1078AFA</key>
-		<string>https://github.com/kirillKey/MasterUpHW2.git</string>
+		<key>DC2E3940-1844-442C-ADEE-EC1695E5440E</key>
+		<string>https://github.com/kirillKey/MasterUPHomeWork.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>MasterUpHW2.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>31A6E674-41AF-4633-A497-076EB1078AFA</key>
+		<key>DC2E3940-1844-442C-ADEE-EC1695E5440E</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/kirillKey/MasterUpHW2.git</string>
+	<string>https://github.com/kirillKey/MasterUPHomeWork.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>31A6E674-41AF-4633-A497-076EB1078AFA</string>
+	<string>DC2E3940-1844-442C-ADEE-EC1695E5440E</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>31A6E674-41AF-4633-A497-076EB1078AFA</string>
+			<string>DC2E3940-1844-442C-ADEE-EC1695E5440E</string>
 			<key>IDESourceControlWCCName</key>
 			<string>MasterUpHW2</string>
 		</dict>
