@@ -18,7 +18,10 @@
 		639EB86618928DA800E0CB90 /* RegistrationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 639EB86518928DA800E0CB90 /* RegistrationController.m */; };
 		639EB86918928DB600E0CB90 /* ForgotPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 639EB86818928DB600E0CB90 /* ForgotPasswordController.m */; };
 		639EB86C18928E4E00E0CB90 /* MainScreenController.m in Sources */ = {isa = PBXBuildFile; fileRef = 639EB86B18928E4E00E0CB90 /* MainScreenController.m */; };
-		639EB86F18928FBA00E0CB90 /* clickme.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 639EB86E18928FBA00E0CB90 /* clickme.jpg */; };
+		63A4C98A189BAD7600DEE4DD /* Bus.ico in Resources */ = {isa = PBXBuildFile; fileRef = 63A4C989189BAD7600DEE4DD /* Bus.ico */; };
+		63A4C98F189BB0BC00DEE4DD /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 63A4C98D189BB0BC00DEE4DD /* star.png */; };
+		63A4C990189BB0BC00DEE4DD /* star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63A4C98E189BB0BC00DEE4DD /* star@2x.png */; };
+		63A4C994189BB4F900DEE4DD /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A4C993189BB4F900DEE4DD /* NetworkManager.m */; };
 		C387B3CC188F304A00106686 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C387B3CB188F304A00106686 /* Foundation.framework */; };
 		C387B3CE188F304A00106686 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C387B3CD188F304A00106686 /* CoreGraphics.framework */; };
 		C387B3D0188F304A00106686 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C387B3CF188F304A00106686 /* UIKit.framework */; };
@@ -65,7 +68,13 @@
 		639EB86818928DB600E0CB90 /* ForgotPasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgotPasswordController.m; sourceTree = "<group>"; };
 		639EB86A18928E4E00E0CB90 /* MainScreenController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScreenController.h; sourceTree = "<group>"; };
 		639EB86B18928E4E00E0CB90 /* MainScreenController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScreenController.m; sourceTree = "<group>"; };
-		639EB86E18928FBA00E0CB90 /* clickme.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = clickme.jpg; sourceTree = "<group>"; };
+		63A4C989189BAD7600DEE4DD /* Bus.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = Bus.ico; sourceTree = "<group>"; };
+		63A4C98C189BAE1C00DEE4DD /* Consts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Consts.h; sourceTree = "<group>"; };
+		63A4C98D189BB0BC00DEE4DD /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
+		63A4C98E189BB0BC00DEE4DD /* star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star@2x.png"; sourceTree = "<group>"; };
+		63A4C992189BB4F900DEE4DD /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
+		63A4C993189BB4F900DEE4DD /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
+		63A4C995189BB5F800DEE4DD /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		C387B3C8188F304A00106686 /* MasterUpHW2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MasterUpHW2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C387B3CB188F304A00106686 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C387B3CD188F304A00106686 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -115,6 +124,7 @@
 		639EB85218928C5900E0CB90 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				63A4C991189BB4E500DEE4DD /* Managers */,
 				639EB85318928C5900E0CB90 /* Controllers */,
 				639EB85618928C5900E0CB90 /* Models */,
 			);
@@ -158,9 +168,20 @@
 		639EB86D18928FB000E0CB90 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				639EB86E18928FBA00E0CB90 /* clickme.jpg */,
+				63A4C98D189BB0BC00DEE4DD /* star.png */,
+				63A4C98E189BB0BC00DEE4DD /* star@2x.png */,
+				63A4C989189BAD7600DEE4DD /* Bus.ico */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		63A4C991189BB4E500DEE4DD /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				63A4C992189BB4F900DEE4DD /* NetworkManager.h */,
+				63A4C993189BB4F900DEE4DD /* NetworkManager.m */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		C387B3BF188F304A00106686 = {
@@ -216,6 +237,8 @@
 				C387B3D4188F304A00106686 /* InfoPlist.strings */,
 				C387B3D7188F304A00106686 /* main.m */,
 				C387B3D9188F304A00106686 /* MasterUpHW2-Prefix.pch */,
+				63A4C98C189BAE1C00DEE4DD /* Consts.h */,
+				63A4C995189BB5F800DEE4DD /* Config.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -316,10 +339,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63A4C98A189BAD7600DEE4DD /* Bus.ico in Resources */,
 				C387B3E4188F304A00106686 /* Images.xcassets in Resources */,
+				63A4C990189BB0BC00DEE4DD /* star@2x.png in Resources */,
 				C387B3D6188F304A00106686 /* InfoPlist.strings in Resources */,
-				639EB86F18928FBA00E0CB90 /* clickme.jpg in Resources */,
 				C387B3DF188F304A00106686 /* Main.storyboard in Resources */,
+				63A4C98F189BB0BC00DEE4DD /* star.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +398,7 @@
 			files = (
 				639EB86118928C5900E0CB90 /* Route.m in Sources */,
 				C387B3DC188F304A00106686 /* AppDelegate.m in Sources */,
+				63A4C994189BB4F900DEE4DD /* NetworkManager.m in Sources */,
 				639EB86C18928E4E00E0CB90 /* MainScreenController.m in Sources */,
 				639EB86618928DA800E0CB90 /* RegistrationController.m in Sources */,
 				639EB86218928C5900E0CB90 /* User.m in Sources */,

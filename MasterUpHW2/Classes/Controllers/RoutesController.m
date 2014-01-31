@@ -13,11 +13,17 @@
 
 #import <AFNetworking.h>
 #import <MBProgressHUD.h>
+#import "NetworkManager.h"
 
-#define ROUTES_URL @"http://marshrutki.com.ua/mu/routes.php"
+#define FAVOURITE_ROUTES_SECTION      0
+#define ALL_ROUTES_SECTION            1
 
 @interface RoutesController ()
-@property (nonatomic, strong) NSMutableArray *data;
+
+@property (nonatomic, strong) NSMutableArray *allRoutes;
+
+@property (nonatomic, strong) NSMutableArray *favouriteRoutes;
+
 @end
 
 @implementation RoutesController
@@ -28,31 +34,22 @@
     
     [MBProgressHUD showHUDAddedTo: self.view
                          animated: YES];
- 
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET: ROUTES_URL
-      parameters: nil
-         success: ^(AFHTTPRequestOperation *operation, id responseObject) {
-             
-             for (NSDictionary *routeParameters in responseObject)
-             {
-                 Route *currentRoute = [Route createRouteWithParameters: routeParameters];
-                 
-                 [self.data addObject: currentRoute];
-             }
-             
-             [self.tableView reloadData];
-             
-             [MBProgressHUD hideHUDForView: self.view
-                                  animated: YES];
-             
-    } failure: ^(AFHTTPRequestOperation *operation, NSError *error) {
+     
+    [[NetworkManager sharedInstance] getRoutesWithCompletion: ^(NSArray *result) {
         
-        NSLog(@"Error: %@", error);
+        [self.allRoutes addObjectsFromArray:result];
+
+        [self.tableView reloadData];
+
+        [MBProgressHUD hideHUDForView: self.view
+                              animated: YES];
+
+        
+    } andFailureBlock:^(NSError *error) {
         
         [MBProgressHUD hideHUDForView: self.view
                              animated: YES];
-        
+
         UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"Error occured", @"")
                                                              message: NSLocalizedString(@"Error loading routes", @"")
                                                             delegate: nil
@@ -73,7 +70,17 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.data.count;
+    if (section == FAVOURITE_ROUTES_SECTION)
+    {
+        return self.favouriteRoutes.count;
+    }
+    
+    return self.allRoutes.count;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
 }
 
 - (UITableViewCell *)tableView: (UITableView *)tableView
@@ -83,7 +90,17 @@
     UITableViewCell *cell           = [tableView dequeueReusableCellWithIdentifier: CellIdentifier
                                                                       forIndexPath: indexPath];
     
-    Route *currentRoute = self.data[indexPath.row];
+    Route *currentRoute = nil;
+    
+    if (indexPath.section == FAVOURITE_ROUTES_SECTION)
+    {
+        currentRoute = self.favouriteRoutes[indexPath.row];
+    }
+    
+    else if(indexPath.section == ALL_ROUTES_SECTION)
+    {
+        currentRoute = self.allRoutes[indexPath.row];
+    }
     
     cell.textLabel.text = currentRoute.name;
     
@@ -95,12 +112,12 @@
 - (void)tableView:               (UITableView *)tableView
         didSelectRowAtIndexPath: (NSIndexPath *)indexPath
 {
-    SidePanelController *panelController               = (SidePanelController *)self.parentViewController;
-    UINavigationController *centerNavigationController = (UINavigationController *)panelController.centerPanel;
-    Route *currentRoute                                = self.data[indexPath.row];
-    MainScreenController *mainScreenController         = centerNavigationController.viewControllers[0];
+    SidePanelController *panelController    = (SidePanelController *)self.parentViewController;
+    Route *currentRoute                     = self.allRoutes[indexPath.row];
     
-    [mainScreenController changeTitle: currentRoute.name];
+    [[NSNotificationCenter defaultCenter] postNotificationName: didSelectRouteNotification
+                                                        object: nil
+                                                      userInfo: @{kSelectedRoute : currentRoute.name}];
     
     [self.tableView deselectRowAtIndexPath: indexPath
                                   animated: YES];
@@ -108,16 +125,27 @@
     [panelController showCenterPanelAnimated: YES];
 }
 
-#pragma mark - Getters -
-
-- (NSMutableArray *)data
+- (NSString *)tableView:                 (UITableView *)tableView
+                titleForHeaderInSection: (NSInteger)section
 {
-    if (!_data) // lazy instantiation
+    if (section == FAVOURITE_ROUTES_SECTION)
     {
-        _data = [NSMutableArray new];
+        return NSLocalizedString(@"Favourites", nil);
     }
     
-    return _data;
+    return NSLocalizedString(@"All", nil);
+}
+
+#pragma mark - Getters -
+
+- (NSMutableArray *)allRoutes
+{
+    if (!_allRoutes) // lazy instantiation
+    {
+        _allRoutes = [NSMutableArray new];
+    }
+    
+    return _allRoutes;
 }
 
 @end
