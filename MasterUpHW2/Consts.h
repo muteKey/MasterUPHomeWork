@@ -11,11 +11,16 @@
 
 #pragma mark - Notifications - 
 
-#define didSelectRouteNotification  @"didSelectRoute"
+#define didSelectRouteNotification                  @"didSelectRoute"
+#define didAddRouteToFavouritesNotification         @"didAddRouteToFavourites"
+#define didRemoveRouteFromFavouritesNotification    @"didRemoveRouteFromFavourites"
 
 
 #pragma mark - Keys -
 
-#define kSelectedRoute @"kSelectedRoute"
+#define kSelectedRoute              @"kSelectedRoute"
+#define kRouteToAddToFavs           @"kRouteToAddToFavs"
+#define kRouteToRemoveFromFavs      @"kRouteToRemoveFromFavs"
+#define kIsRouteInFavourites        @"kIsRouteInFavourites"
 
 #endif

@@ -58,7 +58,28 @@
         [errorAlert show];
         
     }];
+}
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector: @selector(didAddRouteToFavourites:)
+                                                 name: didAddRouteToFavouritesNotification
+                                               object: nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver: self
+                                             selector: @selector(didRemoveRouteFromFavourites:)
+                                                 name: didRemoveRouteFromFavouritesNotification
+                                               object: nil];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    
+//    [[NSNotificationCenter defaultCenter] removeObserver: self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -112,12 +133,25 @@
 - (void)tableView:               (UITableView *)tableView
         didSelectRowAtIndexPath: (NSIndexPath *)indexPath
 {
-    SidePanelController *panelController    = (SidePanelController *)self.parentViewController;
-    Route *currentRoute                     = self.allRoutes[indexPath.row];
+    SidePanelController *panelController    = (SidePanelController *)self.parentViewController.parentViewController;
+    
+    BOOL isFavourite                        = (indexPath.section == FAVOURITE_ROUTES_SECTION) ? YES : NO;
+    Route *currentRoute = nil;
+    
+    if (indexPath.section == FAVOURITE_ROUTES_SECTION)
+    {
+        currentRoute = self.favouriteRoutes[indexPath.row];
+    }
+    
+    else if(indexPath.section == ALL_ROUTES_SECTION)
+    {
+        currentRoute = self.allRoutes[indexPath.row];
+    }
     
     [[NSNotificationCenter defaultCenter] postNotificationName: didSelectRouteNotification
                                                         object: nil
-                                                      userInfo: @{kSelectedRoute : currentRoute.name}];
+                                                      userInfo: @{kSelectedRoute       : currentRoute,
+                                                                  kIsRouteInFavourites : @(isFavourite) }];
     
     [self.tableView deselectRowAtIndexPath: indexPath
                                   animated: YES];
@@ -146,6 +180,34 @@
     }
     
     return _allRoutes;
+}
+
+- (NSMutableArray *)favouriteRoutes
+{
+    if (!_favouriteRoutes)
+    {
+        _favouriteRoutes = [NSMutableArray new];
+    }
+    
+    return _favouriteRoutes;
+}
+
+#pragma mark - Notifications reaction -
+
+- (void)didAddRouteToFavourites: (NSNotification *)note
+{
+    Route *route = note.userInfo[kRouteToAddToFavs];
+    
+    [self.favouriteRoutes addObject: route];
+    [self.tableView reloadData];
+}
+
+- (void)didRemoveRouteFromFavourites: (NSNotification *)note
+{
+    Route *route = note.userInfo[kRouteToRemoveFromFavs];
+    
+    [self.favouriteRoutes removeObject: route];
+    [self.tableView reloadData];
 }
 
 @end
