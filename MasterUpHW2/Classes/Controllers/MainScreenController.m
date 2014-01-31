@@ -32,11 +32,20 @@
                      completion: nil];
 }
 
+- (void)viewWillAppear: (BOOL)animated
+{
+    [super viewWillAppear: animated];
+    
+    [[NSNotificationCenter defaultCenter] addObserver: self
+                                             selector: @selector(didSelectRoute:)
+                                                 name: didSelectRouteNotification
+                                               object: nil];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
 }
-
 
 #pragma mark - UI actions -
 
@@ -53,6 +62,15 @@
 - (void)changeTitle: (NSString *)title
 {
     self.title = title;
+}
+
+#pragma mark - Notifications reaction -
+
+- (void)didSelectRoute: (NSNotification *)note
+{
+    NSString *title = note.userInfo[kSelectedRoute];
+    
+    [self changeTitle: title];
 }
 
 @end
