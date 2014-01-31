@@ -11,7 +11,10 @@
 #endif
 
 #ifdef __OBJC__
+
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+    #import "Consts.h"
+    #import "Config.h"
 
 #endif
