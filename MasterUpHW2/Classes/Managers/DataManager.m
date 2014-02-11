@@ -99,11 +99,7 @@
 - (void)saveContext
 {
     NSError *error = nil;
-    
-    if (![self.objectContext save: &error])
-    {
-        NSLog(@"Error saving record: %@", error);
-    }
+    [[DataManager sharedInstance].objectContext save: &error];
 }
 
 @end

@@ -143,7 +143,7 @@
     
     NSFetchRequest *request                = [[NSFetchRequest alloc] init];
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName: @"Route"
-                                                         inManagedObjectContext: self.childObjectContext];
+                                                         inManagedObjectContext: [DataManager sharedInstance].objectContext];
     request.entity         = entityDescription;
     request.fetchBatchSize = 20;
     
@@ -153,7 +153,7 @@
     
     
     _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest: request
-                                                                    managedObjectContext: self.childObjectContext
+                                                                    managedObjectContext: [DataManager sharedInstance].objectContext
                                                                       sectionNameKeyPath: nil
                                                                                cacheName: @"Route"];
     return _fetchedResultsController;
@@ -167,8 +167,7 @@
     Route *changedRoute       = note.object;
     changedRoute.isFavourited = !changedRoute.isFavourited;
     
-    NSError *error;
-    [self.childObjectContext save: &error];
+    [[DataManager sharedInstance] saveContext];
     
     [self reloadData];
 }
