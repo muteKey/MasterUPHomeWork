@@ -1,26 +1,28 @@
-	//
+//
 //  Route.m
 //  MasterUpHW2
 //
-//  Created by Администратор on 1/22/14.
+//  Created by Kirill on 2/5/14.
 //  Copyright (c) 2014 Администратор. All rights reserved.
 //
 
 #import "Route.h"
 
-#define kRouteTitle     @"route_title"
 
 @implementation Route
 
-+ (Route *)createRouteWithParameters: (NSDictionary *)params
-{
-    Route *route = [Route new];
-    
-    // parsing here
-    route.name   = params[kRouteTitle];
-    
-    
-    return route;
-}
+@dynamic isFavourited;
+@dynamic name;
+@dynamic price;
+@dynamic buses;
 
++ (void)createRouteWithParameters: (NSDictionary *)params
+           inManagedObjectContext: (NSManagedObjectContext *)context
+{
+    Route *route        = [NSEntityDescription insertNewObjectForEntityForName: @"Route"
+                                                        inManagedObjectContext: context];
+    route.name          = params[@"route_title"];
+    route.price         = [params[@"route_price"] floatValue];
+    route.isFavourited  = NO;
+}
 @end

@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Route.h"
+
+@protocol RoutesDelegate <NSObject>
+
+- (void)didSelectRoute: (Route *)route;
+
+@end
 
 @interface RoutesController : UITableViewController
+
+@property (nonatomic, weak) id<RoutesDelegate>delegate;
 
 @end

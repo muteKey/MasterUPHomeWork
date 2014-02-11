@@ -38,23 +38,6 @@
     
 }
 
-- (void)viewWillAppear: (BOOL)animated
-{
-    [super viewWillAppear: animated];
-    
-    [[NSNotificationCenter defaultCenter] addObserver: self
-                                             selector: @selector(didSelectRoute:)
-                                                 name: didSelectRouteNotification
-                                               object: nil];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver: self];
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -62,62 +45,25 @@
 
 #pragma mark - UI actions -
 
-- (IBAction)longTapIcon: (UILongPressGestureRecognizer *)sender
+- (IBAction)didChangeFavourites:(UIBarButtonItem *)sender
 {
-    if (sender.state == UIGestureRecognizerStateBegan)
-    {
-        NSLog(@"Long tap detected on image icon");
-    }
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"didChangeFavourites"
+                                                        object: self.currentRoute];
+    [self showFavSymbol];
 }
 
-- (void)favouritesAction: (UIBarButtonItem *)sender
+- (void)showFavSymbol
 {
-    if (sender.tag == ADD_TO_FAVOURITES_TAG)
+    if (self.currentRoute.isFavourited)
     {
-        if (self.currentRoute)
-        {
-            [[NSNotificationCenter defaultCenter] postNotificationName: didAddRouteToFavouritesNotification
-                                                                object: nil
-                                                              userInfo: @{kRouteToAddToFavs : self.currentRoute}];
-            
-            sender.tag       = REMOVE_FROM_FAVOURITES_TAG;
-            sender.tintColor = [UIColor blackColor];
-        }
-        
-    }
-    
-    else if (sender.tag == REMOVE_FROM_FAVOURITES_TAG)
-    {
-        if (self.currentRoute)
-        {
-            [[NSNotificationCenter defaultCenter] postNotificationName: didRemoveRouteFromFavouritesNotification
-                                                                object: nil
-                                                              userInfo: @{kRouteToRemoveFromFavs : self.currentRoute}];
-            sender.tag       = ADD_TO_FAVOURITES_TAG;
-            sender.tintColor = [UIColor blueColor];
-        }
-    }
-}
-
-- (void)addFavButton: (BOOL)isFavourite
-{
-    UIBarButtonItem *favButton = [[UIBarButtonItem alloc] initWithImage: [UIImage imageNamed:@"star.png"]
-                                                                  style: UIBarButtonItemStylePlain
-                                                                 target: self
-                                                                 action: @selector(favouritesAction:)];
-    if (isFavourite)
-    {
-        [favButton setTag: REMOVE_FROM_FAVOURITES_TAG];
-        favButton.tintColor = [UIColor blackColor];
+        self.navigationItem.rightBarButtonItem.title = @"★";
     }
     else
     {
-        [favButton setTag: ADD_TO_FAVOURITES_TAG];
-        favButton.tintColor = [UIColor blueColor];
+        self.navigationItem.rightBarButtonItem.title = @"☆";
     }
-
-    [self.navigationItem setRightBarButtonItem: favButton];
 }
+
 
 #pragma mark - public method -
 
@@ -126,18 +72,14 @@
     self.title = title;
 }
 
-#pragma mark - Notifications reaction -
+#pragma mark - Routes delegate -
 
-- (void)didSelectRoute: (NSNotification *)note
+- (void)didSelectRoute: (Route *)route
 {
-    Route *selectedRoute = note.userInfo[kSelectedRoute];
-    BOOL isFavourite     = [note.userInfo[kIsRouteInFavourites] boolValue];
-    
-    self.currentRoute    = selectedRoute;
-    
-    [self changeTitle: self.currentRoute.name];
-    
-    [self addFavButton: isFavourite];
+    self.currentRoute = route;
+    [self changeTitle: route.name];
+    [self showFavSymbol];
 }
+
 
 @end

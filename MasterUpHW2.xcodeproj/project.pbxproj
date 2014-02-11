@@ -10,9 +10,13 @@
 		0D08E135BBBB4FDC8E49C48E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F3079EE359F9492C86B2E81F /* libPods.a */; };
 		639535F3189677590061E0C6 /* SidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 639535F2189677590061E0C6 /* SidePanelController.m */; };
 		639535F9189679B10061E0C6 /* RoutesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 639535F8189679B10061E0C6 /* RoutesController.m */; };
+		639A3D5218AA483D00FDBEF8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 639A3D5118AA483D00FDBEF8 /* MapKit.framework */; };
+		639A3D5418AA491300FDBEF8 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 639A3D5318AA491300FDBEF8 /* NetworkManager.m */; };
+		639A3D5718AA4F6A00FDBEF8 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 639A3D5618AA4F6A00FDBEF8 /* DataManager.m */; };
+		639A3D5C18AA4FB400FDBEF8 /* Bus.m in Sources */ = {isa = PBXBuildFile; fileRef = 639A3D5918AA4FB400FDBEF8 /* Bus.m */; };
+		639A3D5D18AA4FB400FDBEF8 /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 639A3D5B18AA4FB400FDBEF8 /* Route.m */; };
+		639A3D6018AA500800FDBEF8 /* Marshrutki.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 639A3D5E18AA500800FDBEF8 /* Marshrutki.xcdatamodeld */; };
 		639EB85F18928C5900E0CB90 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 639EB85518928C5900E0CB90 /* LoginViewController.m */; };
-		639EB86018928C5900E0CB90 /* Bus.m in Sources */ = {isa = PBXBuildFile; fileRef = 639EB85818928C5900E0CB90 /* Bus.m */; };
-		639EB86118928C5900E0CB90 /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 639EB85A18928C5900E0CB90 /* Route.m */; };
 		639EB86218928C5900E0CB90 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 639EB85C18928C5900E0CB90 /* User.m */; };
 		639EB86318928C5900E0CB90 /* Vehicle.m in Sources */ = {isa = PBXBuildFile; fileRef = 639EB85E18928C5900E0CB90 /* Vehicle.m */; };
 		639EB86618928DA800E0CB90 /* RegistrationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 639EB86518928DA800E0CB90 /* RegistrationController.m */; };
@@ -21,7 +25,6 @@
 		63A4C98A189BAD7600DEE4DD /* Bus.ico in Resources */ = {isa = PBXBuildFile; fileRef = 63A4C989189BAD7600DEE4DD /* Bus.ico */; };
 		63A4C98F189BB0BC00DEE4DD /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 63A4C98D189BB0BC00DEE4DD /* star.png */; };
 		63A4C990189BB0BC00DEE4DD /* star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63A4C98E189BB0BC00DEE4DD /* star@2x.png */; };
-		63A4C994189BB4F900DEE4DD /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A4C993189BB4F900DEE4DD /* NetworkManager.m */; };
 		C387B3CC188F304A00106686 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C387B3CB188F304A00106686 /* Foundation.framework */; };
 		C387B3CE188F304A00106686 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C387B3CD188F304A00106686 /* CoreGraphics.framework */; };
 		C387B3D0188F304A00106686 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C387B3CF188F304A00106686 /* UIKit.framework */; };
@@ -52,12 +55,17 @@
 		639535F2189677590061E0C6 /* SidePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidePanelController.m; sourceTree = "<group>"; };
 		639535F7189679B10061E0C6 /* RoutesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoutesController.h; sourceTree = "<group>"; };
 		639535F8189679B10061E0C6 /* RoutesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoutesController.m; sourceTree = "<group>"; };
+		639A3D5118AA483D00FDBEF8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		639A3D5318AA491300FDBEF8 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
+		639A3D5518AA4F6A00FDBEF8 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		639A3D5618AA4F6A00FDBEF8 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		639A3D5818AA4FB400FDBEF8 /* Bus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bus.h; sourceTree = "<group>"; };
+		639A3D5918AA4FB400FDBEF8 /* Bus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bus.m; sourceTree = "<group>"; };
+		639A3D5A18AA4FB400FDBEF8 /* Route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Route.h; sourceTree = "<group>"; };
+		639A3D5B18AA4FB400FDBEF8 /* Route.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Route.m; sourceTree = "<group>"; };
+		639A3D5F18AA500800FDBEF8 /* Marshrutki.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Marshrutki.xcdatamodel; sourceTree = "<group>"; };
 		639EB85418928C5900E0CB90 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		639EB85518928C5900E0CB90 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		639EB85718928C5900E0CB90 /* Bus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bus.h; sourceTree = "<group>"; };
-		639EB85818928C5900E0CB90 /* Bus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bus.m; sourceTree = "<group>"; };
-		639EB85918928C5900E0CB90 /* Route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Route.h; sourceTree = "<group>"; };
-		639EB85A18928C5900E0CB90 /* Route.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Route.m; sourceTree = "<group>"; };
 		639EB85B18928C5900E0CB90 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		639EB85C18928C5900E0CB90 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		639EB85D18928C5900E0CB90 /* Vehicle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vehicle.h; sourceTree = "<group>"; };
@@ -69,12 +77,9 @@
 		639EB86A18928E4E00E0CB90 /* MainScreenController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScreenController.h; sourceTree = "<group>"; };
 		639EB86B18928E4E00E0CB90 /* MainScreenController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScreenController.m; sourceTree = "<group>"; };
 		63A4C989189BAD7600DEE4DD /* Bus.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = Bus.ico; sourceTree = "<group>"; };
-		63A4C98C189BAE1C00DEE4DD /* Consts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Consts.h; sourceTree = "<group>"; };
 		63A4C98D189BB0BC00DEE4DD /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		63A4C98E189BB0BC00DEE4DD /* star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star@2x.png"; sourceTree = "<group>"; };
 		63A4C992189BB4F900DEE4DD /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
-		63A4C993189BB4F900DEE4DD /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
-		63A4C995189BB5F800DEE4DD /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		C387B3C8188F304A00106686 /* MasterUpHW2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MasterUpHW2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C387B3CB188F304A00106686 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C387B3CD188F304A00106686 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -101,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				639A3D5218AA483D00FDBEF8 /* MapKit.framework in Frameworks */,
 				C387B3CE188F304A00106686 /* CoreGraphics.framework in Frameworks */,
 				C387B3D0188F304A00106686 /* UIKit.framework in Frameworks */,
 				C387B3CC188F304A00106686 /* Foundation.framework in Frameworks */,
@@ -153,10 +159,11 @@
 		639EB85618928C5900E0CB90 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				639EB85718928C5900E0CB90 /* Bus.h */,
-				639EB85818928C5900E0CB90 /* Bus.m */,
-				639EB85918928C5900E0CB90 /* Route.h */,
-				639EB85A18928C5900E0CB90 /* Route.m */,
+				639A3D5E18AA500800FDBEF8 /* Marshrutki.xcdatamodeld */,
+				639A3D5818AA4FB400FDBEF8 /* Bus.h */,
+				639A3D5918AA4FB400FDBEF8 /* Bus.m */,
+				639A3D5A18AA4FB400FDBEF8 /* Route.h */,
+				639A3D5B18AA4FB400FDBEF8 /* Route.m */,
 				639EB85B18928C5900E0CB90 /* User.h */,
 				639EB85C18928C5900E0CB90 /* User.m */,
 				639EB85D18928C5900E0CB90 /* Vehicle.h */,
@@ -178,8 +185,10 @@
 		63A4C991189BB4E500DEE4DD /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				639A3D5518AA4F6A00FDBEF8 /* DataManager.h */,
+				639A3D5618AA4F6A00FDBEF8 /* DataManager.m */,
+				639A3D5318AA491300FDBEF8 /* NetworkManager.m */,
 				63A4C992189BB4F900DEE4DD /* NetworkManager.h */,
-				63A4C993189BB4F900DEE4DD /* NetworkManager.m */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -207,6 +216,7 @@
 		C387B3CA188F304A00106686 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				639A3D5118AA483D00FDBEF8 /* MapKit.framework */,
 				C387B3CB188F304A00106686 /* Foundation.framework */,
 				C387B3CD188F304A00106686 /* CoreGraphics.framework */,
 				C387B3CF188F304A00106686 /* UIKit.framework */,
@@ -237,8 +247,6 @@
 				C387B3D4188F304A00106686 /* InfoPlist.strings */,
 				C387B3D7188F304A00106686 /* main.m */,
 				C387B3D9188F304A00106686 /* MasterUpHW2-Prefix.pch */,
-				63A4C98C189BAE1C00DEE4DD /* Consts.h */,
-				63A4C995189BB5F800DEE4DD /* Config.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -396,19 +404,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				639EB86118928C5900E0CB90 /* Route.m in Sources */,
 				C387B3DC188F304A00106686 /* AppDelegate.m in Sources */,
-				63A4C994189BB4F900DEE4DD /* NetworkManager.m in Sources */,
+				639A3D5418AA491300FDBEF8 /* NetworkManager.m in Sources */,
 				639EB86C18928E4E00E0CB90 /* MainScreenController.m in Sources */,
 				639EB86618928DA800E0CB90 /* RegistrationController.m in Sources */,
 				639EB86218928C5900E0CB90 /* User.m in Sources */,
 				639535F3189677590061E0C6 /* SidePanelController.m in Sources */,
+				639A3D6018AA500800FDBEF8 /* Marshrutki.xcdatamodeld in Sources */,
 				639EB86318928C5900E0CB90 /* Vehicle.m in Sources */,
 				639535F9189679B10061E0C6 /* RoutesController.m in Sources */,
+				639A3D5718AA4F6A00FDBEF8 /* DataManager.m in Sources */,
 				639EB86918928DB600E0CB90 /* ForgotPasswordController.m in Sources */,
+				639A3D5C18AA4FB400FDBEF8 /* Bus.m in Sources */,
 				C387B3D8188F304A00106686 /* main.m in Sources */,
-				639EB86018928C5900E0CB90 /* Bus.m in Sources */,
 				639EB85F18928C5900E0CB90 /* LoginViewController.m in Sources */,
+				639A3D5D18AA4FB400FDBEF8 /* Route.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,7 +549,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MasterUpHW2/MasterUpHW2-Prefix.pch";
 				INFOPLIST_FILE = "MasterUpHW2/MasterUpHW2-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -554,7 +564,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MasterUpHW2/MasterUpHW2-Prefix.pch";
 				INFOPLIST_FILE = "MasterUpHW2/MasterUpHW2-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -633,6 +643,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		639A3D5E18AA500800FDBEF8 /* Marshrutki.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				639A3D5F18AA500800FDBEF8 /* Marshrutki.xcdatamodel */,
+			);
+			currentVersion = 639A3D5F18AA500800FDBEF8 /* Marshrutki.xcdatamodel */;
+			path = Marshrutki.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C387B3C0188F304A00106686 /* Project object */;
 }

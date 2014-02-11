@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="lVz-hC-rJi">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--Login View Controller - Login-->
@@ -111,14 +111,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Bus.ico" translatesAutoresizingMaskIntoConstraints="NO" id="NwF-FR-N5A">
-                                <rect key="frame" x="82" y="223" width="157" height="122"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="Pu1-vg-Hbs" appends="YES" id="rqX-7l-ktm"/>
-                                </connections>
-                            </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tgz-iJ-zz0">
                                 <rect key="frame" x="57" y="83" width="197" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -126,18 +118,24 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="CTa-nB-pd9">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                     </view>
-                    <navigationItem key="navigationItem" title="Main" id="ic5-je-SJS"/>
+                    <navigationItem key="navigationItem" title="Main" id="ic5-je-SJS">
+                        <barButtonItem key="rightBarButtonItem" id="rAo-SZ-J8p">
+                            <connections>
+                                <action selector="didChangeFavourites:" destination="ShQ-KS-Grz" id="yB5-pc-vs0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C6x-67-oeV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="Pu1-vg-Hbs">
-                    <connections>
-                        <action selector="longTapIcon:" destination="ShQ-KS-Grz" id="5gm-Oe-UrG"/>
-                    </connections>
-                </pongPressGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="Pu1-vg-Hbs"/>
             </objects>
             <point key="canvasLocation" x="659" y="66"/>
         </scene>
@@ -145,19 +143,36 @@
         <scene sceneID="5Dp-kR-6DP">
             <objects>
                 <tableViewController id="ktS-eL-Qzk" customClass="RoutesController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="jXh-ht-Qni">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="59" sectionHeaderHeight="22" sectionFooterHeight="22" id="jXh-ht-Qni">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="separatorInset" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="LI3-0e-fsQ">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="jo2-Ty-Vru" detailTextLabel="c90-fq-5eL" rowHeight="59" style="IBUITableViewCellStyleSubtitle" id="LI3-0e-fsQ">
+                                <rect key="frame" x="0.0" y="22" width="320" height="59"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LI3-0e-fsQ" id="7bZ-ec-2Cy">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="58"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jo2-Ty-Vru">
+                                            <rect key="frame" x="15" y="11" width="34" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="c90-fq-5eL">
+                                            <rect key="frame" x="15" y="33" width="43" height="15"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.40392156862745099" green="0.41960784313725491" blue="0.48627450980392156" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -273,9 +288,6 @@
             <point key="canvasLocation" x="1264" y="69"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Bus.ico" width="256" height="256"/>
-    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

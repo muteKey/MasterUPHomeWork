@@ -9,7 +9,7 @@
 #import "RoutesController.h"
 #import "SidePanelController.h"
 #import "MainScreenController.h"
-#import "Route.h"
+#import "DataManager.h"
 
 #import <AFNetworking.h>
 #import <MBProgressHUD.h>
@@ -20,9 +20,10 @@
 
 @interface RoutesController ()
 
-@property (nonatomic, strong) NSMutableArray *allRoutes;
+@property (nonatomic, strong) NSArray *favouriteRoutes;
+@property (nonatomic, strong) NSArray *notFavouriteRoutes;
 
-@property (nonatomic, strong) NSMutableArray *favouriteRoutes;
+@property (nonatomic, strong) NSManagedObjectContext *childObjectContext;
 
 @end
 
@@ -32,32 +33,12 @@
 {
     [super viewDidLoad];
     
-    [MBProgressHUD showHUDAddedTo: self.view
-                         animated: YES];
-     
-    [[NetworkManager sharedInstance] getRoutesWithCompletion: ^(NSArray *result) {
-        
-        [self.allRoutes addObjectsFromArray:result];
+    if ([[DataManager sharedInstance] notFavoritedRoutes].count == 0 ||
+        [[DataManager sharedInstance] favouritedRoutes].count == 0)
+    {
+        [self requestData];
+    }
 
-        [self.tableView reloadData];
-
-        [MBProgressHUD hideHUDForView: self.view
-                              animated: YES];
-
-        
-    } andFailureBlock:^(NSError *error) {
-        
-        [MBProgressHUD hideHUDForView: self.view
-                             animated: YES];
-
-        UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"Error occured", @"")
-                                                             message: NSLocalizedString(@"Error loading routes", @"")
-                                                            delegate: nil
-                                                   cancelButtonTitle: NSLocalizedString(@"Okay", @"")
-                                                   otherButtonTitles: nil, nil];
-        [errorAlert show];
-        
-    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -65,21 +46,16 @@
     [super viewWillAppear:animated];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector: @selector(didAddRouteToFavourites:)
-                                                 name: didAddRouteToFavouritesNotification
+                                             selector: @selector(didChangeFavourites:)
+                                                 name: @"didChangeFavourites"
                                                object: nil];
+    [self reloadData];
     
-    [[NSNotificationCenter defaultCenter] addObserver: self
-                                             selector: @selector(didRemoveRouteFromFavourites:)
-                                                 name: didRemoveRouteFromFavouritesNotification
-                                               object: nil];
-}
+    SidePanelController *panelController    = (SidePanelController *)self.parentViewController.parentViewController;
+    UINavigationController *navController   = (UINavigationController *)panelController.centerPanel;
+    MainScreenController *mainController    = [navController.viewControllers firstObject];
+    self.delegate                           = mainController;
 
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-    
-//    [[NSNotificationCenter defaultCenter] removeObserver: self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -96,7 +72,7 @@
         return self.favouriteRoutes.count;
     }
     
-    return self.allRoutes.count;
+    return self.notFavouriteRoutes.count;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -120,10 +96,11 @@
     
     else if(indexPath.section == ALL_ROUTES_SECTION)
     {
-        currentRoute = self.allRoutes[indexPath.row];
+        currentRoute = self.notFavouriteRoutes[indexPath.row];
     }
     
-    cell.textLabel.text = currentRoute.name;
+    cell.textLabel.text       = currentRoute.name;
+    cell.detailTextLabel.text = [NSString stringWithFormat: @"%.2f", currentRoute.price];
     
     return cell;
 }
@@ -135,28 +112,26 @@
 {
     SidePanelController *panelController    = (SidePanelController *)self.parentViewController.parentViewController;
     
-    BOOL isFavourite                        = (indexPath.section == FAVOURITE_ROUTES_SECTION) ? YES : NO;
-    Route *currentRoute = nil;
-    
-    if (indexPath.section == FAVOURITE_ROUTES_SECTION)
+    if ([self.delegate respondsToSelector:@selector(didSelectRoute:)])
     {
-        currentRoute = self.favouriteRoutes[indexPath.row];
+        Route *currentRoute = nil;
+        if (indexPath.section == FAVOURITE_ROUTES_SECTION)
+        {
+            currentRoute = self.favouriteRoutes[indexPath.row];
+        }
+        else
+        {
+            currentRoute = self.notFavouriteRoutes[indexPath.row];
+        }
+        
+        [self.delegate didSelectRoute: currentRoute];
     }
-    
-    else if(indexPath.section == ALL_ROUTES_SECTION)
-    {
-        currentRoute = self.allRoutes[indexPath.row];
-    }
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName: didSelectRouteNotification
-                                                        object: nil
-                                                      userInfo: @{kSelectedRoute       : currentRoute,
-                                                                  kIsRouteInFavourites : @(isFavourite) }];
     
     [self.tableView deselectRowAtIndexPath: indexPath
                                   animated: YES];
     
     [panelController showCenterPanelAnimated: YES];
+
 }
 
 - (NSString *)tableView:                 (UITableView *)tableView
@@ -172,42 +147,93 @@
 
 #pragma mark - Getters -
 
-- (NSMutableArray *)allRoutes
+- (NSManagedObjectContext *)childObjectContext
 {
-    if (!_allRoutes) // lazy instantiation
+    if (_childObjectContext != nil)
     {
-        _allRoutes = [NSMutableArray new];
+        return _childObjectContext;
     }
     
-    return _allRoutes;
+    _childObjectContext                 = [[NSManagedObjectContext alloc] initWithConcurrencyType: NSPrivateQueueConcurrencyType];
+    _childObjectContext.parentContext   = [DataManager sharedInstance].objectContext;
+    
+    return _childObjectContext;
 }
 
-- (NSMutableArray *)favouriteRoutes
-{
-    if (!_favouriteRoutes)
-    {
-        _favouriteRoutes = [NSMutableArray new];
-    }
-    
-    return _favouriteRoutes;
-}
 
 #pragma mark - Notifications reaction -
 
-- (void)didAddRouteToFavourites: (NSNotification *)note
+- (void)didChangeFavourites: (NSNotification *)note
 {
-    Route *route = note.userInfo[kRouteToAddToFavs];
+    Route *changedRoute       = note.object;
+    changedRoute.isFavourited = !changedRoute.isFavourited;
     
-    [self.favouriteRoutes addObject: route];
+    [[DataManager sharedInstance] saveContext];
+    
+    [self reloadData];
+}
+
+#pragma mark - data retrieving methods -
+
+- (void)reloadData
+{
+    self.favouriteRoutes    = [[DataManager sharedInstance] favouritedRoutes];
+    self.notFavouriteRoutes = [[DataManager sharedInstance] notFavoritedRoutes];
+    
     [self.tableView reloadData];
 }
 
-- (void)didRemoveRouteFromFavourites: (NSNotification *)note
+- (void)requestData
 {
-    Route *route = note.userInfo[kRouteToRemoveFromFavs];
+    [MBProgressHUD showHUDAddedTo: self.view
+                         animated: YES];
     
-    [self.favouriteRoutes removeObject: route];
-    [self.tableView reloadData];
+    __weak RoutesController *weakSelf = self;
+    [[NetworkManager sharedInstance] getRoutesWithCompletion: ^(NSArray *result) {
+        
+        [self.childObjectContext performBlock:^{
+            
+            NSError *error;
+            for (NSDictionary *routeDict in result)
+            {
+                [Route createRouteWithParameters: routeDict
+                          inManagedObjectContext: weakSelf.childObjectContext];
+            }
+            
+            [weakSelf.childObjectContext save: &error];
+            
+            [[DataManager sharedInstance].objectContext performBlock: ^{
+                
+                NSError *error;
+                [[DataManager sharedInstance].objectContext save: &error];
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [weakSelf reloadData];
+                });
+                
+            }];
+            
+        }];
+        
+        
+        [MBProgressHUD hideHUDForView: self.view
+                             animated: YES];
+        
+        
+    } andFailureBlock:^(NSError *error) {
+        
+        [MBProgressHUD hideHUDForView: self.view
+                             animated: YES];
+        
+        UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle: NSLocalizedString(@"Error occured", @"")
+                                                             message: NSLocalizedString(@"Error loading routes", @"")
+                                                            delegate: nil
+                                                   cancelButtonTitle: NSLocalizedString(@"Okay", @"")
+                                                   otherButtonTitles: nil, nil];
+        [errorAlert show];
+        
+    }];
+    
 }
 
 @end
