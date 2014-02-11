@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AFNetworking.h>
 
 typedef void(^SuccessBlock)(NSArray *result);
 typedef void(^ErrorBlock)(NSError *error);
 
-@interface NetworkManager : NSObject
+@interface NetworkManager : AFHTTPRequestOperationManager
 
 + (instancetype)sharedInstance;
 

@@ -7,9 +7,10 @@
 //
 
 #import "NetworkManager.h"
-#import <AFNetworking.h>
 #import "Route.h"
 
+static NSString *BASE_URL   = @"http://marshrutki.com.ua/mu/";
+static NSString *ROUTES_URL = @"routes.php";
 
 @implementation NetworkManager
 
@@ -18,7 +19,7 @@
     static id instance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        instance = [[self alloc] init];
+        instance = [[self alloc] initWithBaseURL: [NSURL URLWithString: BASE_URL]];
     });
     
     return instance;
@@ -27,27 +28,26 @@
 - (void)getRoutesWithCompletion: (SuccessBlock)completion
                 andFailureBlock: (ErrorBlock)errorBlock
 {
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET: ROUTES_URL
+    [self GET: ROUTES_URL
       parameters: nil
          success: ^(AFHTTPRequestOperation *operation, id responseObject) {
              
-             NSMutableArray *allRoutes = [NSMutableArray new];
+             NSArray *allRoutes = (NSArray *)responseObject;
              
-             for (NSDictionary *routeParameters in responseObject)
+             if (completion)
              {
-                 Route *currentRoute = [Route createRouteWithParameters: routeParameters];
-                 
-                 [allRoutes addObject: currentRoute];
+                 completion(allRoutes);
              }
-             
-             completion(allRoutes);
              
          } failure: ^(AFHTTPRequestOperation *operation, NSError *error) {
              
              NSLog(@"Error: %@", error);
              
-             errorBlock(error);
+             if (errorBlock)
+             {
+                 errorBlock(error);
+             }
+             
          }];
 }
 
