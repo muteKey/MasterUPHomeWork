@@ -11,6 +11,4 @@
 
 @interface MainScreenController : UIViewController<RoutesDelegate>
 
-- (void)changeTitle: (NSString *)title;
-
 @end

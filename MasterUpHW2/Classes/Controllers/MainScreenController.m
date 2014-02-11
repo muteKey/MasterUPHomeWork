@@ -11,9 +11,6 @@
 
 #define loginControllerIdentifier @"loginNavigationController"
 
-#define ADD_TO_FAVOURITES_TAG                100
-#define REMOVE_FROM_FAVOURITES_TAG           101
-
 @interface MainScreenController ()
 
 @property (nonatomic, weak) Route *currentRoute;
@@ -54,22 +51,7 @@
 
 - (void)showFavSymbol
 {
-    if (self.currentRoute.isFavourited)
-    {
-        self.navigationItem.rightBarButtonItem.title = @"★";
-    }
-    else
-    {
-        self.navigationItem.rightBarButtonItem.title = @"☆";
-    }
-}
-
-
-#pragma mark - public method -
-
-- (void)changeTitle: (NSString *)title
-{
-    self.title = title;
+    self.navigationItem.rightBarButtonItem.title = (self.currentRoute.isFavourited) ?  @"★" :  @"☆";
 }
 
 #pragma mark - Routes delegate -
@@ -77,7 +59,8 @@
 - (void)didSelectRoute: (Route *)route
 {
     self.currentRoute = route;
-    [self changeTitle: route.name];
+    self.title        = route.name;
+    
     [self showFavSymbol];
 }
 

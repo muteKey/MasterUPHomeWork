@@ -22,6 +22,4 @@
 
 - (void)saveContext;
 
-- (NSArray *)favouritedRoutes;
-- (NSArray *)notFavoritedRoutes;
 @end

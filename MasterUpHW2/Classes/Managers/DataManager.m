@@ -106,31 +106,4 @@
     }
 }
 
-#pragma mark - Data fetching -
-
-- (NSArray *)favouritedRoutes
-{
-    NSPredicate *predicate       = [NSPredicate predicateWithFormat: @"isFavourited == YES"];
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName: @"Route"];
-    
-    [fetchRequest setPredicate: predicate];
-    
-    NSError* error;
-    return [self.objectContext executeFetchRequest: fetchRequest
-                                             error: &error];
-}
-
-- (NSArray *)notFavoritedRoutes
-{
-    NSPredicate *predicate       = [NSPredicate predicateWithFormat: @"isFavourited == NO"];
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName: @"Route"];
-    
-    [fetchRequest setPredicate: predicate];
-    
-    NSError* error;
-    return [self.objectContext executeFetchRequest: fetchRequest
-                                             error: &error];
-}
-
-
 @end

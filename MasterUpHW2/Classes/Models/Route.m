@@ -25,4 +25,5 @@
     route.price         = [params[@"route_price"] floatValue];
     route.isFavourited  = NO;
 }
+
 @end

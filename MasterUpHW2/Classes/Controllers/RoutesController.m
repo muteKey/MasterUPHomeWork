@@ -15,15 +15,11 @@
 #import <MBProgressHUD.h>
 #import "NetworkManager.h"
 
-#define FAVOURITE_ROUTES_SECTION      0
-#define ALL_ROUTES_SECTION            1
-
 @interface RoutesController ()
 
-@property (nonatomic, strong) NSArray *favouriteRoutes;
-@property (nonatomic, strong) NSArray *notFavouriteRoutes;
-
 @property (nonatomic, strong) NSManagedObjectContext *childObjectContext;
+
+@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
 @end
 
@@ -33,8 +29,10 @@
 {
     [super viewDidLoad];
     
-    if ([[DataManager sharedInstance] notFavoritedRoutes].count == 0 ||
-        [[DataManager sharedInstance] favouritedRoutes].count == 0)
+    NSError *error;
+    [self.fetchedResultsController performFetch: &error];
+    
+    if (self.fetchedResultsController.fetchedObjects.count == 0)
     {
         [self requestData];
     }
@@ -67,37 +65,31 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == FAVOURITE_ROUTES_SECTION)
-    {
-        return self.favouriteRoutes.count;
-    }
-    
-    return self.notFavouriteRoutes.count;
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 2;
+    return self.fetchedResultsController.fetchedObjects.count;
 }
 
 - (UITableViewCell *)tableView: (UITableView *)tableView
          cellForRowAtIndexPath: (NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell           = [tableView dequeueReusableCellWithIdentifier: CellIdentifier
-                                                                      forIndexPath: indexPath];
+    static NSString *notFavouritedCellIdentifier = @"notFavouritedCell";
+    static NSString *favouritedCellIdentifier    = @"favouritedCell";
     
-    Route *currentRoute = nil;
+    Route *currentRoute       = [self.fetchedResultsController objectAtIndexPath: indexPath];
+    UITableViewCell *cell     = nil;
     
-    if (indexPath.section == FAVOURITE_ROUTES_SECTION)
+    NSLog(@"IS favourited: %d %@", currentRoute.isFavourited,currentRoute.name);
+    
+    if (currentRoute.isFavourited)
     {
-        currentRoute = self.favouriteRoutes[indexPath.row];
+        cell = [tableView dequeueReusableCellWithIdentifier: favouritedCellIdentifier
+                                               forIndexPath: indexPath];
+    }
+    else
+    {
+        cell = [tableView dequeueReusableCellWithIdentifier: notFavouritedCellIdentifier
+                                               forIndexPath: indexPath];
     }
     
-    else if(indexPath.section == ALL_ROUTES_SECTION)
-    {
-        currentRoute = self.notFavouriteRoutes[indexPath.row];
-    }
     
     cell.textLabel.text       = currentRoute.name;
     cell.detailTextLabel.text = [NSString stringWithFormat: @"%.2f", currentRoute.price];
@@ -112,17 +104,9 @@
 {
     SidePanelController *panelController    = (SidePanelController *)self.parentViewController.parentViewController;
     
-    if ([self.delegate respondsToSelector:@selector(didSelectRoute:)])
+    if ([self.delegate respondsToSelector: @selector(didSelectRoute:)])
     {
-        Route *currentRoute = nil;
-        if (indexPath.section == FAVOURITE_ROUTES_SECTION)
-        {
-            currentRoute = self.favouriteRoutes[indexPath.row];
-        }
-        else
-        {
-            currentRoute = self.notFavouriteRoutes[indexPath.row];
-        }
+        Route *currentRoute = [self.fetchedResultsController objectAtIndexPath: indexPath];
         
         [self.delegate didSelectRoute: currentRoute];
     }
@@ -132,17 +116,6 @@
     
     [panelController showCenterPanelAnimated: YES];
 
-}
-
-- (NSString *)tableView:                 (UITableView *)tableView
-                titleForHeaderInSection: (NSInteger)section
-{
-    if (section == FAVOURITE_ROUTES_SECTION)
-    {
-        return NSLocalizedString(@"Favourites", nil);
-    }
-    
-    return NSLocalizedString(@"All", nil);
 }
 
 #pragma mark - Getters -
@@ -160,6 +133,32 @@
     return _childObjectContext;
 }
 
+- (NSFetchedResultsController *)fetchedResultsController
+{
+
+    if (_fetchedResultsController)
+    {
+        return _fetchedResultsController;
+    }
+    
+    NSFetchRequest *request                = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName: @"Route"
+                                                         inManagedObjectContext: self.childObjectContext];
+    request.entity         = entityDescription;
+    request.fetchBatchSize = 20;
+    
+    NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey: @"isFavourited"
+                                                         ascending: NO];
+    [request setSortDescriptors:@[sort]];
+    
+    
+    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest: request
+                                                                    managedObjectContext: self.childObjectContext
+                                                                      sectionNameKeyPath: nil
+                                                                               cacheName: @"Route"];
+    return _fetchedResultsController;
+}
+
 
 #pragma mark - Notifications reaction -
 
@@ -168,7 +167,8 @@
     Route *changedRoute       = note.object;
     changedRoute.isFavourited = !changedRoute.isFavourited;
     
-    [[DataManager sharedInstance] saveContext];
+    NSError *error;
+    [self.childObjectContext save: &error];
     
     [self reloadData];
 }
@@ -177,9 +177,8 @@
 
 - (void)reloadData
 {
-    self.favouriteRoutes    = [[DataManager sharedInstance] favouritedRoutes];
-    self.notFavouriteRoutes = [[DataManager sharedInstance] notFavoritedRoutes];
-    
+    NSError *error;
+    [self.fetchedResultsController performFetch: &error];
     [self.tableView reloadData];
 }
 
