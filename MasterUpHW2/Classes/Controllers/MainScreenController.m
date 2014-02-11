@@ -46,7 +46,7 @@
 {
     [[NSNotificationCenter defaultCenter] postNotificationName: @"didChangeFavourites"
                                                         object: self.currentRoute];
-    [self showFavSymbol];
+    [self showFavSymbol];    
 }
 
 - (void)showFavSymbol
